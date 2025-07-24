@@ -4,7 +4,13 @@ import sgMail from "@sendgrid/mail";
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Example ETF list — all U.S. focused, large-cap quality ETFs
-const ETF_SYMBOLS = ["VIG", "QUAL", "RPV", "IVV", "VOO"];
+const etfSymbols = [
+  'SPY', 'IVV', 'VOO', 'QQQ', 'VTI', 'SCHX', 'IWM', 'DIA', 'XLK', 'XLF',
+  'XLV', 'XLY', 'XLP', 'XLE', 'XLU', 'VUG', 'VTV', 'VO', 'VB', 'SCHB',
+  'MDY', 'IJH', 'IJS', 'IJR', 'XLB', 'XBI', 'XME', 'XRT', 'XOP',
+  // add more tickers up to 100+
+];
+
 
 async function getETFData(symbol) {
   const quote = await yahooFinance.quote(symbol);
