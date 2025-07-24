@@ -1,0 +1,14 @@
+{
+  "name": "etf-email-saas",
+  "version": "1.0.0",
+  "description": "Micro SaaS to send daily ETF recommendations by email",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cron": "node cron.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "yahoo-finance2": "^2.3.0"
+  }
+}
