@@ -1,0 +1,28 @@
+name: Daily ETF Email
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Runs every day at 4:00 UTC (7:00 Israel time)
+  workflow_dispatch: # allows manual triggering
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run cron job
+        run: node cron.js
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
