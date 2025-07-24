@@ -1,3 +1,5 @@
+npm install yahoo-finance2 chartjs-node-canvas @sendgrid/mail
+
 {
   "name": "etf-email-saas",
   "version": "1.0.0",
